@@ -9,10 +9,15 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Build
+          run: swift build -v
+
       - name: Create GitHub Release
         uses: josephrodriguez/swift-release@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          owner: minihic
+          repo: swift-prog-2-project 
           tag: v1.0.0
           name: Release 1.0.0
           body: Initial release of the project.
